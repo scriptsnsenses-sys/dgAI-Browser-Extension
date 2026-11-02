@@ -93,4 +93,4 @@ dgai/
 
 ## License
 
-MIT
+The software is Apache 2.0 licensed, before using, modifying or copying the code refer to the license. Please follow the license to help us keep this software open source.
