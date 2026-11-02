@@ -54,7 +54,11 @@ ollama pull llama3.1
 Then set Base URL to `http://localhost:11434` and Model to `llama3.1`. Page
 content never leaves the machine when using Ollama or Mock.
 
-### NVIDIA (NIM)
+### Custom provider
+
+Choose `custom` in Provider, set Base URL, Model, optional API key, Endpoint type
+(`chat_completions`, `messages`, or `responses`), and optional custom headers
+(JSON or `Key: Value` lines). Base URL is joined with the selected endpoint path.
 
 Set Provider to `nvidia`, paste your NVIDIA API key, Base URL
 `https://integrate.api.nvidia.com/v1`, and choose a model such as

@@ -8,6 +8,8 @@
     apiKey: "",
     baseUrl: "",
     model: "",
+    endpointType: "chat_completions",
+    customHeaders: "",
     temperature: 0.3,
     theme: "system",
     trustedSites: [],

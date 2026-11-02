@@ -16,17 +16,21 @@
 
     // Provider section
     const providerSelect = h("select", {});
-    ["mock", "openai", "anthropic", "ollama", "nvidia"].forEach(function (p) { providerSelect.appendChild(h("option", { value: p }, p)); });
+    ["mock", "openai", "anthropic", "ollama", "nvidia", "custom"].forEach(function (p) { providerSelect.appendChild(h("option", { value: p }, p)); });
     const apiKey = h("input", { type: "password", placeholder: "API key" });
     const baseUrl = h("input", { type: "text", placeholder: "Base URL (optional)" });
     const model = h("input", { type: "text", placeholder: "Model" });
-    const temp = h("input", { type: "range", class: "range", min: "0", max: "1", step: "0.1" });
+    const endpointType = h("select", {});
+    ["chat_completions", "messages", "responses"].forEach(function (p) { endpointType.appendChild(h("option", { value: p }, p)); });
+    const customHeaders = h("textarea", { placeholder: '{"X-Custom-Header":"value"} or Key: Value lines' });
     const providerSection = h("div", { class: "section" },
       h("h3", {}, "Provider"),
       field("Provider", providerSelect),
       field("API key", apiKey),
       field("Base URL", baseUrl),
       field("Model", model),
+      field("Endpoint type", endpointType),
+      field("Custom headers", customHeaders),
       field("Temperature", temp)
     );
 
@@ -92,6 +96,8 @@
         apiKey.value = s.apiKey || "";
         baseUrl.value = s.baseUrl || "";
         model.value = s.model || "";
+        endpointType.value = s.endpointType || "chat_completions";
+        customHeaders.value = s.customHeaders || "";
         temp.value = s.temperature != null ? s.temperature : 0.3;
         sensitiveToggle.checked = s.alwaysConfirmSensitive !== false;
         const p = s.profile || {};
@@ -159,6 +165,8 @@
     apiKey.addEventListener("change", function () { save({ apiKey: apiKey.value }); });
     baseUrl.addEventListener("change", function () { save({ baseUrl: baseUrl.value }); });
     model.addEventListener("change", function () { save({ model: model.value }); });
+    endpointType.addEventListener("change", function () { save({ endpointType: endpointType.value }); });
+    customHeaders.addEventListener("change", function () { save({ customHeaders: customHeaders.value }); });
     temp.addEventListener("change", function () { save({ temperature: parseFloat(temp.value) }); });
     sensitiveToggle.addEventListener("change", function () { save({ alwaysConfirmSensitive: sensitiveToggle.checked }); });
     nameI.addEventListener("change", function () { save({ profile: { name: nameI.value } }); });
