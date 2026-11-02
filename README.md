@@ -103,4 +103,4 @@ dgai/
 
 ## License
 
-The software is Apache 2.0 licensed, before using, modifying or copying the code refer to the license. Please follow the license to help us keep this software open source.
+Software under Apache 2.0 license. Use, modify, and distribute accordingly.
