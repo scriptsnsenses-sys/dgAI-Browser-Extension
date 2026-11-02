@@ -16,7 +16,7 @@
 
     // Provider section
     const providerSelect = h("select", {});
-    ["mock", "openai", "anthropic", "ollama"].forEach(function (p) { providerSelect.appendChild(h("option", { value: p }, p)); });
+    ["mock", "openai", "anthropic", "ollama", "nvidia"].forEach(function (p) { providerSelect.appendChild(h("option", { value: p }, p)); });
     const apiKey = h("input", { type: "password", placeholder: "API key" });
     const baseUrl = h("input", { type: "text", placeholder: "Base URL (optional)" });
     const model = h("input", { type: "text", placeholder: "Model" });

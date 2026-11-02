@@ -21,6 +21,7 @@
       "src/background/providers/openai.js",
       "src/background/providers/anthropic.js",
       "src/background/providers/ollama.js",
+      "src/background/providers/nvidia.js",
       "src/background/tools.js",
       "src/background/planner.js",
       "src/background/agent.js",

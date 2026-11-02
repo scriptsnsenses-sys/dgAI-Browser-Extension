@@ -28,7 +28,7 @@ multi-step form filling — while keeping the user in control.
 - Gmail: summarise thread, draft reply, insert draft (interaction-gated).
 - Calendar: extract next meeting details and attendees.
 - Providers: OpenAI-compatible (custom base URL), Anthropic, Ollama (local),
-  and Mock (offline, no key).
+  NVIDIA (integrate.api.nvidia.com), and Mock (offline, no key).
 - Full permission system with grant management and audit log.
 - Light and dark themes (System / Light / Dark).
 
@@ -53,6 +53,12 @@ ollama pull llama3.1
 
 Then set Base URL to `http://localhost:11434` and Model to `llama3.1`. Page
 content never leaves the machine when using Ollama or Mock.
+
+### NVIDIA (NIM)
+
+Set Provider to `nvidia`, paste your NVIDIA API key, Base URL
+`https://integrate.api.nvidia.com/v1`, and choose a model such as
+`meta/llama-3.1-8b-instruct`.
 
 ## Keyboard shortcuts
 
