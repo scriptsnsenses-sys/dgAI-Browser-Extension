@@ -1,0 +1,78 @@
+{
+  "manifest_version": 2,
+  "name": "dgAI",
+  "version": "0.1.0",
+  "description": "AI browser agent: reads pages freely, acts only with permission.",
+  "icons": {
+    "48": "icons/icon-48.png",
+    "96": "icons/icon-96.png",
+    "128": "icons/icon-128.png"
+  },
+  "background": {
+    "scripts": [
+      "src/shared/constants.js",
+      "src/shared/messages.js",
+      "src/shared/schema.js",
+      "src/background/settings.js",
+      "src/background/audit.js",
+      "src/background/permissions.js",
+      "src/background/providers/index.js",
+      "src/background/providers/mock.js",
+      "src/background/providers/openai.js",
+      "src/background/providers/anthropic.js",
+      "src/background/providers/ollama.js",
+      "src/background/tools.js",
+      "src/background/planner.js",
+      "src/background/agent.js",
+      "src/background/router.js",
+      "src/background/background.js"
+    ],
+    "persistent": true
+  },
+  "sidebar_action": {
+    "default_panel": "src/sidebar/sidebar.html",
+    "default_icon": "icons/icon-48.png",
+    "default_title": "dgAI"
+  },
+  "browser_action": {
+    "default_icon": "icons/icon-48.png",
+    "default_title": "dgAI"
+  },
+  "permissions": ["storage", "tabs", "activeTab", "menus"],
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": [
+        "src/shared/constants.js",
+        "src/shared/messages.js",
+        "src/shared/schema.js",
+        "src/content/snapshot.js",
+        "src/content/events.js",
+        "src/content/forms.js",
+        "src/content/adapters/generic.js",
+        "src/content/adapters/gmail.js",
+        "src/content/adapters/calendar.js",
+        "src/content/actions.js",
+        "src/content/content.js"
+      ],
+      "run_at": "document_idle",
+      "all_frames": false
+    }
+  ],
+  "commands": {
+    "focus_composer": {
+      "suggested_key": { "default": "Alt+Shift+D" },
+      "description": "Focus dgAI composer"
+    }
+  },
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "dgai@daivik.local",
+      "strict_min_version": "109.0",
+      "data_collection_permissions": {
+        "required": ["websiteContent", "websiteActivity"],
+        "optional": ["authenticationInfo"]
+      }
+    }
+  }
+}
