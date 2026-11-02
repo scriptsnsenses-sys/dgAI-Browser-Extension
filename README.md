@@ -32,12 +32,6 @@ multi-step form filling — while keeping the user in control.
 - Full permission system with grant management and audit log.
 - Light and dark themes (System / Light / Dark).
 
-## Install (temporary add-on)
-
-1. Open Firefox → `about:debugging#/runtime/this-firefox`.
-2. Click **Load Temporary Add-on**.
-3. Select `manifest.json` in this folder.
-
 ## Configure a provider
 
 Open the sidebar → settings gear (or `Ctrl/Cmd+K`):
